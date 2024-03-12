@@ -1,0 +1,20 @@
+<div class="login-category">
+    <div *ngIf="showMenu()">
+        <img [src]="userImageUrl" alt="">
+        <a routerLink='user-login'  routerLinkActive="active" (click)="userLogin()" class="btn btn-primary">User Login</a>
+    </div>
+    
+    <div *ngIf="showMenu()">
+        <img [src]="driverImageUrl" alt="">
+        <a routerLink='driver-home'  routerLinkActive="active" (click)="driverLogin()" class="btn btn-primary">Driver Login</a>
+    </div>
+    
+    <div *ngIf="showMenu()">
+        <img [src]="adminImageUrl" alt="">
+        <a routerLink='admin-home'  routerLinkActive="active" (click)="adminLogin()" class="btn btn-primary">Admin Login</a>
+    </div>
+</div>
+
+<div>
+    <router-outlet></router-outlet>
+</div>
