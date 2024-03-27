@@ -1,4 +1,8 @@
 import { Time } from "@angular/common";
+import { Car } from "./car";
+import { Payment } from "./payment";
+import { Rating } from "./rating";
+import { User } from "./user";
 
 export class Booking {
     constructor(
@@ -9,5 +13,8 @@ export class Booking {
         public bookingTime?: Time,
         public status?: string,
         public fare?: number,
+        public payment?: Payment,
+        public rating?: Rating,
+        public car? : Car
     ) { }
 }

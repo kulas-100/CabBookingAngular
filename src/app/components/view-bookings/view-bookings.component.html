@@ -1,0 +1,47 @@
+<div>
+    <button [class.active]="view === 'upcoming'" (click)="toggleView('upcoming')" class="toggle-btn">Upcoming Bookings</button>
+    <button [class.active]="view === 'completed'" (click)="toggleView('completed')" class="toggle-btn">Completed Bookings</button>
+</div>
+
+<br>
+
+<div class="bookingList" *ngIf = "upcomingBookings.length !== 0 && view === 'upcoming'">
+    <div class="card bookings" *ngFor = "let booking of upcomingBookings | sortBooking:'bookingDate'">
+        <div class="card-body">
+            <div>
+                <h5>{{booking.startLocation}} - {{booking.endLocation}}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">Date: {{booking.bookingDate}}</h6>
+                <h6 class="card-subtitle mb-2 text-muted">{{booking.car?.route?.startTime}} - {{booking.car?.route?.endTime}}</h6>
+            </div>
+            <div>
+                <h5>Booking id: {{booking.id}}</h5>
+                <p *ngIf = "booking.status == 'Cancelled'">Status: Cancelled</p>
+                <button *ngIf = "booking.status !== 'Cancelled'" class="btn btn-danger" (click) = "cancelBooking(booking.id)">Cancel booking</button>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+<div class="alert alert-danger alert-dismissible fade show" *ngIf = "upcomingBookings.length == 0 && view === 'upcoming'">
+    <strong>You have no upcoming bookings</strong>
+</div>
+
+<div class="bookingList" *ngIf = "completedBookings.length !== 0 && view === 'completed'">
+    <div class="card bookings" *ngFor = "let booking of completedBookings | sortBooking:'bookingDate'">
+        <div class="card-body">
+            <div>
+                <h5>{{booking.startLocation}} - {{booking.endLocation}}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">Date: {{booking.bookingDate}}</h6>
+                <h6 class="card-subtitle mb-2 text-muted">{{booking.car?.route?.startTime}} - {{booking.car?.route?.endTime}}</h6>
+            </div>
+            <div>
+                <h5>Booking id: {{booking.id}}</h5>
+                <button *ngIf = "booking.status == 'Success'" class="btn btn-success">Status: {{booking.status}}</button>
+                <button *ngIf = "booking.status == 'Cancelled'" class="btn btn-danger">Status: {{booking.status}}</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="alert alert-danger alert-dismissible fade show" *ngIf = "completedBookings.length == 0 && view === 'completed'">
+    <strong>You have no completed bookings</strong>
+</div>

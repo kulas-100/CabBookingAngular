@@ -1,0 +1,34 @@
+<div>
+    <div *ngIf="message" class="alert alert-success">
+        <p> {{message}}</p>
+    </div>
+    <div *ngIf="errorMessage" class="alert alert-danger">
+        <p> {{errorMessage}}</p>
+    </div>
+    
+    <h3 *ngIf="ratings.length <1"> No data Found.</h3>
+    <table *ngIf="ratings.length>0" class="table">
+        <thead>
+            <tr>
+                <th>Driver Name</th>
+                <th>Point</th>
+                <th>Review</th>
+            </tr>
+        </thead>
+        <tbody>
+            <ng-container *ngFor="let rating of ratings">
+                <ng-container *ngIf="getDriverById(rating.driverId)">
+                    <tr>
+                        <td>{{ getDriverById(rating.driverId)?.name }}</td>
+                        <td>{{ rating.point }}</td>
+                        <td>{{ rating.review }}</td>
+                        <td><button (click)="deleteRating(rating.id)" class="btn btn-danger">Delete</button></td>
+                        <td><button (click)="updateRating(rating)" class="btn btn-warning">Update</button></td>
+                    </tr>
+                </ng-container>
+            </ng-container>
+        </tbody>
+                          
+    </table>
+</div>
+

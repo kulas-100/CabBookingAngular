@@ -1,20 +1,105 @@
-<div class="login-category">
-    <div *ngIf="showMenu()">
-        <img [src]="userImageUrl" alt="">
-        <a routerLink='user-login'  routerLinkActive="active" (click)="userLogin()" class="btn btn-primary">User Login</a>
-    </div>
-    
-    <div *ngIf="showMenu()">
-        <img [src]="driverImageUrl" alt="">
-        <a routerLink='driver-home'  routerLinkActive="active" (click)="driverLogin()" class="btn btn-primary">Driver Login</a>
-    </div>
-    
-    <div *ngIf="showMenu()">
-        <img [src]="adminImageUrl" alt="">
-        <a routerLink='admin-home'  routerLinkActive="active" (click)="adminLogin()" class="btn btn-primary">Admin Login</a>
+<div>
+    <div class="login-category" *ngIf="showMenu()">
+        <div *ngIf="showMenu()" class="box">
+            <h3>Are you a user</h3><br>
+            <a routerLink='user-login'  routerLinkActive="active" (click)="userLogin()" class="btn btn-primary">Click here to Login</a>
+        </div>
+        
+        <div *ngIf="showMenu()" class="box">
+            <!--<img [src]="driverImageUrl" alt=""><br>-->
+            <h3>Are you a Driver</h3><br>
+            <a routerLink='driver-home'  routerLinkActive="active" (click)="driverLogin()" class="btn btn-primary">Click here to Login</a>
+        </div>
+        
+        <div *ngIf="showMenu()" class="box">
+            <!--<img [src]="adminImageUrl" alt=""><br>-->
+            <h3>Are you an Admin</h3><br>
+            <a routerLink='admin-login'  routerLinkActive="active" (click)="adminLogin()" class="btn btn-primary">Click here to Login</a>
+        </div>
     </div>
 </div>
+
+
+<div *ngIf = "showNavBar()" class="navBar">
+    <nav>
+        <ul> 
+            <li>
+                <img [src]="logoImageUrl" alt="">
+            </li>
+            <li>
+                <a routerLink='view-bookings' 
+                 routerLinkActive="active" >View Bookings</a>
+            </li>
+            <li>
+                <a routerLink='search-cab' 
+                 routerLinkActive="active" >Book</a>
+            </li>
+            <li>
+                <a routerLink='cancel-booking' 
+                 routerLinkActive="active" >Cancel Booking</a>
+            </li>
+            <li>
+                <a routerLink='post-rating' 
+                 routerLinkActive="active" >Add Ratings</a>
+            </li>
+            <li>
+                <a routerLink='view-rating' 
+                 routerLinkActive="active" >View Ratings</a>
+            </li>
+            <li >
+                <button (click)="userLogout()" id="logout">User Logout</button>
+            </li>
+        </ul>
+    </nav>
+</div>
+
+
+<div *ngIf = "showAdminNavBar()" class="navBar" class = "admNavbar">
+    <nav>
+        <ul>
+            <li>
+                <img [src]="logoImageUrl" alt="">
+            </li>
+            <li>
+                <a routerLink='register' 
+                 routerLinkActive="active" >Register</a>
+            </li>
+            <li>
+                <a routerLink='display-users'
+                routerLinkActive="active" >Users</a>
+            </li>
+            <li>
+                <a routerLink='display-trips' 
+                 routerLinkActive="active" >Trips</a>
+            </li>
+            <li>
+                <a routerLink='display-bookings' 
+                 routerLinkActive="active" >Bookings</a>
+            </li>
+            <li>
+                <a routerLink='display-cabs' 
+                 routerLinkActive="active" >Cabs</a>
+            </li>
+             <li>
+                <a routerLink='display-drivers' 
+                 routerLinkActive="active" >Drivers</a>
+            </li>
+            <li>
+                <a routerLink='routes' 
+                 routerLinkActive="active" >Routes</a>
+            </li> 
+            <li>
+                <button (click)="adminLogout()" id="logout">Admin Logout</button>
+            </li>
+        </ul>
+    </nav>
+</div>
+<br>
+
+
 
 <div>
     <router-outlet></router-outlet>
 </div>
+
+

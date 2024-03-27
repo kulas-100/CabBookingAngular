@@ -1,0 +1,37 @@
+<p>give-rating works!</p>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Rating</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+<div class="give-rating-container">
+    <h3> Add new Rating:</h3>
+    <div *ngIf="message" class="alert alert-success">
+        <p> {{message}}</p>
+    </div>
+    <div *ngIf="errorMessage" class="alert alert-danger">
+        <p> {{errorMessage}}</p>
+    </div>
+    <form>  
+        <div class="form-group">
+          <label for="point">Points:</label>
+          <div class="star-rating">
+            <span class="star" *ngFor="let star of stars"  [ngClass]="{'filled': star.filled}" (click)="rate(star.value)">
+              <i class="fas fa-star"></i>
+            </span>
+          </div>
+          <input type="hidden" id="point" name="point" class="form-control" [(ngModel)]="newGiveRating.point">
+        </div>
+        <div class="form-group">
+          <label for="review">Review:</label>
+          <textarea id="review" name="review" class="form-control" [(ngModel)]="newGiveRating.review"></textarea>
+        </div>
+        <button (click)="addRating()" class="btn btn-success">Add Rating</button>
+    </form>
+
+</div>
+</body>
+

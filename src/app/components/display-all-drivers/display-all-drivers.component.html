@@ -1,0 +1,32 @@
+<div>
+    <h3>Display all Drivers</h3>
+
+
+    Search:<br>
+    <input type="text" id="search" name="search" [(ngModel)]="query">
+    
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>id</th>
+            <th>Name</th>
+            <th>emailId</th>
+            <th>password</th>
+            <th>phoneNumber</th>
+            <th>licenseNumber</th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor ="let driveraccount of driveraccounts | searchdriver:query">
+                <td>{{driveraccount.id}}</td>
+                <td>{{driveraccount.name}}</td>
+                <td>{{driveraccount.emailId}}</td>
+                <td>{{driveraccount.password}}</td>
+                <td>{{driveraccount.phoneNumber}}</td>
+                <td>{{driveraccount.licenseNumber}}</td>
+                <!-- <td> <button (Click)="displayBookingsById(account.id)"class="btn btn-danger">Delete</button></td>//specify id or entier json is also fine
+                <td> <button (Click)="updateAccount(account)" class ="btn btn-warning">update</button></td> -->
+            </tr>
+        </tbody>
+    </table>
+</div>

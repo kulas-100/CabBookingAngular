@@ -1,0 +1,77 @@
+<div>
+    <h3> Add new User Account:</h3>
+
+
+    <!-- <div *ngIf="message" class="alert alert-success">
+        <p> {{message}}</p>
+    </div>
+    <div *ngIf="errorMessage" class="alert alert-danger">
+        <p> {{errorMessage}}</p> -->
+        <form>
+        <div class="form-group">
+            <label for="Name">Name:</label>
+            <input type="text" id="Name" name="Name" [(ngModel)]="newUserAccount.name" required
+                class="form-control" #NameRef="ngModel" pattern="[A-Za-z]{3,}">
+        </div>
+        <div *ngIf="NameRef.invalid && (NameRef.touched || NameRef.dirty)">
+            <p *ngIf="NameRef.errors?.['required']" class="text-danger">Name is required, cant be blank.
+            </p>
+            <p *ngIf="NameRef.errors?.['pattern']" class="text-danger">Name cant be a number</p>
+        </div>
+        <br>
+
+
+        <div class="form-group">
+        <label for="CdsId">CdsId</label>
+        <input type="text" id="cdsId" name="CdsId" [(ngModel)]="newUserAccount.cdsId" required
+            class="form-control" #CdsIdRef="ngModel" pattern="[A-Za-z]{3,}">
+         </div>
+         
+         <div *ngIf="CdsIdRef.invalid && (CdsIdRef.touched || CdsIdRef.dirty)">
+        <p *ngIf="CdsIdRef.errors?.['required']" class="text-danger">CdsId is required, cant be blank.
+        </p>
+        <p *ngIf="CdsIdRef.errors?.['pattern']" class="text-danger"> </p>
+    </div>
+    <br>
+
+
+        <div class="form-group">
+            <label for="Password">Password:</label>
+            <input type="password" id="password" name="password" [(ngModel)]="newUserAccount.password" required
+                class="form-control" #passwordRef="ngModel" pattern="[A-Za-z0-9]{3,}">
+        </div>
+        <div *ngIf="passwordRef.invalid && (passwordRef.touched || passwordRef.dirty)">
+            <p *ngIf="passwordRef.errors?.['required']" class="text-danger">Password is required, cant be blank.</p>
+            <p *ngIf="passwordRef.errors?.['pattern']" class="text-danger">Password cant be a special char</p>
+        </div>
+
+
+        <br>
+        <div class="form-group">
+            <label for="PhoneNumber">PhoneNumber:</label>
+            <input type="number" id="phoneNumber" name="phoneNumber" [(ngModel)]="newUserAccount.phoneNumber" required
+                class="form-control" #phoneNumberRef="ngModel" pattern="[0-9]{10}">
+        </div>
+        <div *ngIf="phoneNumberRef.invalid && (phoneNumberRef.touched || phoneNumberRef.dirty)">
+            <p *ngIf="phoneNumberRef.errors?.['required']" class="text-danger">PhoneNumber is required, cant be blank.</p>
+            <p *ngIf="phoneNumberRef.errors?.['pattern']" class="text-danger">Invalid PhoneNumber</p>
+        </div>
+        <br>
+
+
+        <div class="form-group"></div>
+        <label for="Address">Address:</label>
+            <input type="text" id="Address" name="Address" [(ngModel)]="newUserAccount.address" required
+                class="form-control" #AddressRef="ngModel" pattern="[A-Za-z]{3,}">
+        <div *ngIf="AddressRef.invalid && (AddressRef.touched || AddressRef.dirty)">
+            <p *ngIf="AddressRef.errors?.['required']" class="text-danger">Address is required, cant be blank.
+            </p>
+            <p *ngIf="AddressRef.errors?.['pattern']" class="text-danger"></p>
+        </div>
+        <br>
+
+
+        <button (click)="addUserAccount()" class="btn btn-success">Add user Account</button>
+        <button (click)="backtologin()" class="btn btn-danger">back to login</button>
+    </form>
+</div>

@@ -1,7 +1,6 @@
 export class UserLogin {
     constructor(
-        public cdsId: string|null,
-        public password: string|null
-    ){}
-   
+        public cdsId?: string,
+        public password?: string
+    ){}   
 }

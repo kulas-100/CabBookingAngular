@@ -1,0 +1,29 @@
+<div>
+    <h3>Display all Bookings by Customers: </h3>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>CdsId</th>
+            <th>Booking_Date</th>
+            <th>Booking_Time</th>
+            <th>End_Location</th>
+            <th>Fare</th>
+            <th>Ride_Date</th>
+            <th>Start_Location</th>
+            <th>Status</th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor ="let Bookings of Booking">
+                <td>{{Booking.id}}</td>
+                <td>{{Booking.name}}</td>
+                <td>{{Booking.password}}</td>
+                <td>{{Booking.amount}}</td>
+                <td>{{Booking.Email}}</td>
+                <td>{{Booking.password}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+

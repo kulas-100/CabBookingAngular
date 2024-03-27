@@ -9,10 +9,25 @@ import { Router } from '@angular/router';
 })
 export class RegisterComponent {
 
+
   constructor(private router:Router){}
 
+
   registerNewUser(){
-    console.log("Register User Successful!");
-    this.router.navigateByUrl('login');
+    console.log("User Registration Successful!");
+    this.router.navigateByUrl('User-Registration');
+  }
+
+
+  registerNewDriver(){
+    console.log("Driver Registration Successful!");
+    this.router.navigateByUrl('Driver-Registration');
+  }
+
+
+  registerNewCab(){
+    console.log("Cab registration Successful!");
+    this.router.navigateByUrl('Cab-Registration');
   }
 }
+

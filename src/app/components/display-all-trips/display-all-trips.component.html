@@ -1,0 +1,23 @@
+<div>
+    <h3>Display all Trips by Driver: </h3>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>rideDate</th>
+            <th>startTime</th>
+            <th>endTime</th>
+            <th>fare</th>
+            <th>status</th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr *ngfor ="let trip of trips">
+                <td>{{trip.rideDate}}</td>
+                <td>{{trip.startTime}}</td>
+                <td>{{trip.endTime}}</td>
+                <td>{{trip.fare}}</td>
+                <td>{{trip.status}}</td>
+                </tr>
+        </tbody>
+    </table>
+</div>

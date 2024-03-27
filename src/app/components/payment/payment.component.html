@@ -1,0 +1,23 @@
+<div>
+    <div *ngIf="message" class="alert alert-success">
+        <p> {{message}}</p>
+    </div>
+    <div *ngIf="errorMessage" class="alert alert-danger">
+        <p> {{errorMessage}}</p>
+    </div>
+
+    <div class="container">
+        <h4>Amount: {{fare}}</h4><br>
+        <form>
+            <h6>Select your payment method</h6>
+            <input type="radio" id="gpay" name="gpay" value="Gpay" [(ngModel)]="newPayment.paymentMethod">
+            <label for="gpay">Gpay</label><br><br>
+            <input type="radio" id="paytm" name="paytm" value="paytm" [(ngModel)]="newPayment.paymentMethod">
+            <label for="paytm">Paytm</label><br><br>
+            <input type="radio" id="card" name="card" value="card" [(ngModel)]="newPayment.paymentMethod">
+            <label for="card">Card</label><br><br>
+            <button (click)="addPayment()" class="btn btn-success"> Pay </button>
+            <button (click)="cancelPayment()" class="btn btn-danger" id="cancel"> Cancel </button>
+        </form>
+    </div>
+</div>

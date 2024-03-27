@@ -1,0 +1,37 @@
+<div>
+    <h3>Display all Cabs</h3>
+
+
+    Search:<br>
+    <input type="text" id="search" name="search" [(ngModel)]="query">
+    
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>id</th>
+            <th>type</th>
+            <th>carNumber</th>
+            <th>capacity</th>
+            <th>availableSeats</th>
+            <th>driverName</th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor ="let cabaccount of cabaccounts  | searchcab:query">
+                <td>{{cabaccount.id}}</td>
+                <td>{{cabaccount.type}}</td>
+                <td>{{cabaccount.carNumber}}</td>
+                <td>{{cabaccount.capacity}}</td>
+                <td>{{cabaccount.availableSeats}}</td>
+                <td>{{cabaccount.driver?.name}}</td>
+
+                <!-- <button (Click)="addCabAccount()" class="btn btn-success">Add Cab Account</button> -->
+                
+                <!-- <td> <button (Click)="displayBookingsById(account.id)"class="btn btn-danger">Delete</button></td>//specify id or entier json is also fine
+                <td> <button (Click)="updateAccount(account)" class ="btn btn-warning">update</button></td> -->
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+

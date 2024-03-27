@@ -1,0 +1,17 @@
+
+<h3> Update your Rating:</h3>
+    <div *ngIf="message" class="alert alert-success">
+        <p> {{message}}</p>
+    </div>
+    <div *ngIf="errorMessage" class="alert alert-danger">
+        <p> {{errorMessage}}</p>
+    </div>
+    <form>       
+        <label for="point">Points</label><br>
+        <input type="number" id="point" name="point" [(ngModel)]="rating.point"><br>
+       
+        <label for="review">Review</label><br>
+        <input type="text" id="review" name="review" [(ngModel)]="rating.review"><br>
+
+        <button (click)="updateRating()" class="btn btn-success">Update Rating</button>    
+    </form>

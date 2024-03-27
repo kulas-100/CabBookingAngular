@@ -1,0 +1,18 @@
+
+<div class="container">
+    <div class="alert alert-success"><h5>Your Booking is Successfull</h5></div>
+    <h4>Booking details: </h4>
+    <p>Booking Id: {{booking.id}}</p>
+    <p>Start Location: {{booking.startLocation}}</p>
+    <p>End Location: {{booking.endLocation}}</p>
+    <p>Booking Date: {{booking.bookingDate}}</p>
+    <p>Ride Time: {{booking.car?.route?.startTime}}</p>
+    <qr-code [value]="qrValue" size = "200" errorCorrectionLevel = "M"></qr-code>
+    <p>Click <a (click) = "goBack()">here</a> to go back else you will be automatically redirected in {{countdown}} seconds</p>
+</div>
+
+
+
+
+
+

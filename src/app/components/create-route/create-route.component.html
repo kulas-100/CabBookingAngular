@@ -1,0 +1,56 @@
+<div>
+    <h2>Create Route</h2>
+    <div *ngIf="message" class="alert alert-success">
+        <p> {{message}}</p>
+    </div>
+    <div *ngIf="errorMessage" class="alert alert-danger">
+        <p> {{errorMessage}}</p>
+    </div>
+    <form #userForm="ngForm">
+        <div class="form-group">
+            <label for="locationId">Location ID:</label>
+            <input type="number" id="locationId" name="locationId" [(ngModel)]="route.locationId" required
+                class="form-control" #LocationIdRef="ngModel" pattern="[0-9]{1,4}">
+        </div>
+        <div *ngIf="LocationIdRef.invalid && (LocationIdRef.touched || LocationIdRef.dirty)">
+            <p *ngIf="LocationIdRef.errors?.['required']" class="text-danger">Location ID is required, cant be balnk.
+            </p>
+            <p *ngIf="LocationIdRef.errors?.['pattern']" class="text-danger">Location ID should be of 4 digits</p>
+        </div>
+            <div class="form-group">
+                <label for="startLocation">Start Location:</label>
+                <input type="text" id="startLocation" name="startLocation" [(ngModel)]="route.startLocation" required
+                    class="form-control" #startLocationRef="ngModel" pattern="[A-Za-z]{3,}">
+            </div>
+            <div *ngIf="startLocationRef.invalid && (startLocationRef.touched || startLocationRef.dirty)">
+                <p *ngIf="startLocationRef.errors?.['required']" class="text-danger">Start Location is required, cant be
+                    balnk.</p>
+                <p *ngIf="startLocationRef.errors?.['pattern']" class="text-danger">Start Location should be a without
+                    numbers and minimum of 3 characters</p>
+            </div>  
+                <div class="form-group">
+                    <label for="endLocation">End Location:</label>
+                    <input type="text" id="endLocation" name="endLocation" [(ngModel)]="route.endLocation" required
+                        class="form-control" #endLocationRef="ngModel" pattern="[A-Za-z]{3,}">
+                </div>
+                <div *ngIf="endLocationRef.invalid && (endLocationRef.touched || endLocationRef.dirty)">
+                    <p *ngIf="endLocationRef.errors?.['required']" class="text-danger">End Location is required, cant be
+                        balnk.</p>
+                    <p *ngIf="endLocationRef.errors?.['pattern']" class="text-danger">End Location should be a without
+                        numbers and minimum of  3 characters</p>
+                </div>
+                    <div class="form-group">
+                        <label for="fare">Fare:</label>
+                        <input type="number" id="fare" name="fare" [(ngModel)]="route.fare" required
+                            class="form-control" #fareRef="ngModel" pattern="[0-9]{1,3}" min=30>
+                    </div>
+                    <div *ngIf="fareRef.invalid && (fareRef.touched || fareRef.dirty)">
+                        <p *ngIf="fareRef.errors?.['required']" class="text-danger">Fare is required, cant be balnk.</p>
+                        <p *ngIf="fareRef.errors?.['pattern']" class="text-danger">Fare should be a number</p>
+                        <p *ngIf="fareRef.errors?.['min']" class="text-danger">Fare should be minimum 30</p>
+                    </div>
+                        <br>
+                    <button (click)="addRoute()" class="btn btn-primary">Submit</button>
+  
+    </form>
+</div>

@@ -1,0 +1,36 @@
+<div>
+    <h3>Display all Users</h3>
+
+
+    Search:<br>
+    <input type="text" id="search" name="search" [(ngModel)]="query">
+
+
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>id</th>
+            <th>Name</th>
+            <th>cdsId</th>
+            <th>password</th>
+            <th>phoneNumber</th>
+            <th>address</th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor ="let useraccount of useraccounts | searchuser:query">
+                <td>{{useraccount.id}}</td>
+                <td>{{useraccount.name}}</td>
+                <td>{{useraccount.cdsId}}</td>
+                <td>{{useraccount.password}}</td>
+                <td>{{useraccount.phoneNumber}}</td>
+                <td>{{useraccount.address}}</td>
+                <!-- <td> <button (Click)="displayBookingsById(account.id)"class="btn btn-danger">Delete</button></td>//specify id or entier json is also fine
+                <td> <button (Click)="updateAccount(account)" class ="btn btn-warning">update</button></td> -->
+            </tr>
+        </tbody>
+    </table>
+
+
+
+</div>

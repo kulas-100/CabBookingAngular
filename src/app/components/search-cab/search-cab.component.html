@@ -1,0 +1,47 @@
+<div class="container">
+    <div class="search-bar">
+        <form>
+            <input type="text" id="start" name="start" required [(ngModel)] = "locationDto.startLocation">
+
+            <input type="text" id="end" name="end" required [(ngModel)] = "locationDto.endLocation">
+
+            <button type="submit" (click) = "searchCab()">Find Cabs</button>
+        </form>
+    </div>
+</div>
+
+
+<div id="cabList" class="cabList" *ngIf="cabList.length>0">
+    <div class="card cabs" *ngFor="let cab of cabList">
+        <div class="card-body">
+            <div>
+                <h5>{{cab.route?.startLocation}} - {{cab.route?.endLocation}}</h5>
+                <h5>{{cab.route?.startTime}} - {{cab.route?.endTime}}</h5><br>
+                <h6 class="card-subtitle mb-2 text-muted">Seats Available: {{cab.availableSeats}}</h6>
+                <h6 class="card-subtitle mb-2 text-muted">Cab Type: {{cab.type}}</h6>
+                <h6 class="card-subtitle mb-2 text-muted">Driver Name: {{cab.driver?.name}}</h6>
+            </div>
+            <div class="right-float">
+                <h5>Fare: Rs {{cab.route?.fare}}</h5><br>
+                <div *ngIf = "cab">
+                    <button *ngIf = "cab?.availableSeats" class="btn btn-success" (click) = "selectCab(cab.id)"> Book now</button>
+                    <button *ngIf = "cab.availableSeats !== undefined && cab.availableSeats < 1" class="btn btn-danger"> Cab full</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+<div *ngIf = "locationDto.startLocation == undefined && locationDto.endLocation == undefined">
+    <div class="alert alert-danger alert-dismissible fade show">
+        <strong>Enter locations to search for cabs</strong>
+    </div>
+</div>
+
+<div *ngIf = "clickSearch && cabList.length === 0 && locationDto.startLocation !== undefined && locationDto.endLocation !== undefined">
+    <div class="alert alert-danger alert-dismissible fade show">
+        <strong>No cabs Found!</strong> Try different locations.
+    </div>
+</div>
+
+

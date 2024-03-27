@@ -1,0 +1,88 @@
+<div>
+    <h3> Add new Driver Account:</h3>
+    <!-- <div *ngIf="message" class="alert alert-success">
+        <p> {{message}}</p>
+    </div>
+    <div *ngIf="errorMessage" class="alert alert-danger">
+        <p> {{errorMessage}}</p>
+    </div> -->
+    <form #userForm="ngForm">
+        <div class="form-group">
+            <label for="DriverId">Driver Id</label>
+            <input type="text" id="DriverId" name="Driver Id" [(ngModel)]="newDriverAccount.id" required
+                class="form-control" #DriverIdRef="ngModel" pattern="[A-Za-z]{3,}">
+        </div>
+        <div *ngIf="DriverIdRef.invalid && (DriverIdRef.touched || DriverIdRef.dirty)">
+            <p *ngIf="DriverIdRef.errors?.['required']" class="text-danger">Driver Id is required, cant be blank.
+            </p>
+            <p *ngIf="DriverIdRef.errors?.['pattern']" class="text-danger"> Driver Id cant only be numbers</p>
+        </div>
+        <br>
+
+
+        <div class="form-group">
+            <label for="Name">Name:</label>
+            <input type="text" id="Name" name="Name" [(ngModel)]="newDriverAccount.name" required
+                class="form-control" #NameRef="ngModel" pattern="[A-Za-z]{3,}">
+        </div>
+        <div *ngIf="NameRef.invalid && (NameRef.touched || NameRef.dirty)">
+            <p *ngIf="NameRef.errors?.['required']" class="text-danger">Name is required, cant be blank.
+            </p>
+            <p *ngIf="NameRef.errors?.['pattern']" class="text-danger">Name cant be a number</p>
+</div>
+        <br>
+        <div class="form-group">
+            <label for="Email">Email:</label>
+            <input type="text" id="Email" name="Email" [(ngModel)]="newDriverAccount.emailId" required
+                class="form-control" #EmailRef="ngModel" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}">
+        </div>
+        <div *ngIf="EmailRef.invalid && (EmailRef.touched || EmailRef.dirty)">
+            <p *ngIf="EmailRef.errors?.['required']" class="text-danger">Email is required, cant be blank.</p>
+            <p *ngIf="EmailRef.errors?.['pattern']" class="text-danger">Invalid Email</p>
+        </div>
+
+        <br>
+        <div class="form-group">
+            <label for="Password">Password:</label>
+            <input type="password" id="password" name="password" [(ngModel)]="newDriverAccount.password" required
+                class="form-control" #passwordRef="ngModel" pattern="[A-Za-z0-9]{3,}">
+        </div>
+        <div *ngIf="passwordRef.invalid && (passwordRef.touched || passwordRef.dirty)">
+            <p *ngIf="passwordRef.errors?.['required']" class="text-danger">Password is required, cant be blank.</p>
+            <p *ngIf="passwordRef.errors?.['pattern']" class="text-danger">Password cant be a number</p>
+        </div>
+
+
+        <br>
+        <div class="form-group">
+            <label for="PhoneNumber">PhoneNumber:</label>
+            <input type="number" id="phoneNumber" name="phoneNumber" [(ngModel)]="newDriverAccount.phoneNumber" required
+                class="form-control" #phoneNumberRef="ngModel" pattern="[0-9]{10}">
+        </div>
+        <div *ngIf="phoneNumberRef.invalid && (phoneNumberRef.touched || phoneNumberRef.dirty)">
+            <p *ngIf="phoneNumberRef.errors?.['required']" class="text-danger">PhoneNumber is required, cant be blank.</p>
+            <p *ngIf="phoneNumberRef.errors?.['pattern']" class="text-danger">Invalid PhoneNumber</p>
+        </div>
+
+
+        <br>
+        <div class="form-group">
+            <label for="LicenseNumber">LicenseNumber:</label>
+            <input type="text" id="licenseNumber" name="licenseNumber" [(ngModel)]="newDriverAccount.licenseNumber" required
+                class="form-control" #licenseNumberRef="ngModel" pattern="[A-Za-z0-9]{3,}">
+
+
+        </div>  
+
+
+        <div *ngIf="licenseNumberRef.invalid && (licenseNumberRef.touched || licenseNumberRef.dirty)">
+            <p *ngIf="licenseNumberRef.errors?.['required']" class="text-danger">LicenseNumber is required, cant be blank.</p>
+            <p *ngIf="licenseNumberRef.errors?.['pattern']" class="text-danger">LicenseNumber cant be a number</p>
+        </div>
+        <br>
+
+
+        <button (click)="addDriverAccount()" class="btn btn-success">Add Driver Account</button>
+        <button (click)="backtologin()" class="btn btn-danger">back to login</button>
+    </form>
+</div>

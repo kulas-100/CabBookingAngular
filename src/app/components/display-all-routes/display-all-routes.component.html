@@ -1,0 +1,35 @@
+<button type="button" showelement=!showelement> show all</button>
+
+
+
+<div>
+    <h3>Display All Routes: </h3>
+    <div *ngIf="message" class="alert alert-success">
+        <p> {{message}}</p>
+    </div>
+    <div *ngIf="errorMessage" class="alert alert-danger">
+        <p> {{errorMessage}}</p>
+    </div>
+    
+    <h3 *ngIf="routes.length <1"> No routes Found.</h3>
+    <table *ngIf="routes.length>0" class="table table-striped">
+        <thead>
+            <tr>
+                <th class="table-heading">Route Id</th>
+                <th class="table-heading">Start Location</th>
+                <th class="table-heading">End Location</th>
+                <th class="table-heading">Fare</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let route of routes">
+                <td>{{route.locationId}}</td>
+                <td>{{route.startLocation}}</td>
+                <td>{{route.endLocation}}</td>
+                <td>{{route.fare}}</td>
+                <td> <button (click)="deleteRouteById(route.locationId)" class="btn btn-danger">Delete</button></td>
+                <td> <button (click)="updateRoute(route)" class="btn btn-warning">Update</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

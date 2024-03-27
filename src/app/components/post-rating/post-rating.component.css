@@ -1,0 +1,31 @@
+.bookingList{
+    margin-left: 20%;
+    align-items: center;
+}
+
+.bookings{
+    max-width: 800px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2%;
+}
+
+.card-body{
+    display: grid;
+    grid-template-columns: 55% 45%;
+}
+
+.toggle-btn{
+    width: 50%;
+    border: none;
+    height: 50px;
+    display: inline-block;
+    cursor: pointer;
+    border: none;
+}
+
+.toggle-btn.active{
+    border-bottom: 5px solid blue;
+  }

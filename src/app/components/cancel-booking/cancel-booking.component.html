@@ -1,0 +1,18 @@
+<div class="bookingList" *ngIf = "upcomingBookings.length > 0">
+    <div class="card bookings" *ngFor = "let booking of upcomingBookings | sortBooking:'bookingDate'">
+        <div class="card-body">
+            <div>
+                <h5>{{booking.startLocation}} - {{booking.endLocation}}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">Date: {{booking.bookingDate}}</h6>
+            </div>
+            <div>
+                <h5>Booking id: {{booking.id}}</h5>
+                <p *ngIf = "booking.status == 'Cancelled'">Status: Cancelled</p>
+                <button *ngIf = "booking.status !== 'Cancelled'" class="btn btn-danger" (click) = "cancelBooking(booking.id)">Cancel booking</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="alert alert-danger alert-dismissible fade show" *ngIf = "upcomingBookings.length < 1">
+    <strong>You have no upcoming bookings</strong>
+</div>
