@@ -1,0 +1,21 @@
+<div>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>UserId</th>
+            <th>Point</th>
+            <th>Review</th>
+        </tr>
+        </thead>
+        <tbody>
+                <tr *ngFor="let rating of ratings">
+                    <td>{{ rating.userId }}</td>
+                    <td>{{ rating.point}}</td>
+                    <td>{{ rating.review}}</td>
+                </tr>
+        </tbody>
+    </table>
+</div>
+
+
+

@@ -1,0 +1,16 @@
+
+<div *ngIf="message" class="alert alert-success">
+    <p> {{message}}</p>
+</div>
+<div *ngIf="errorMessage" class="alert alert-danger">
+    <p> {{errorMessage}}</p>
+</div>
+<form> 
+    <h3> UpdateDriver:</h3>   <br>   
+    <label for="carId">Car Id</label><br>
+    <input type="number" id="carId" name="carId" [(ngModel)]="assignDriverDto.carId"><br><br>
+   
+    <label for="driverId">Route Id</label><br>
+    <input type="number" id="driverId" name="driverId" [(ngModel)]="assignDriverDto.driverId"><br><br>
+    <button (click) = "assignDriverFunc()" class="btn btn-success">Update Route</button>    
+</form>

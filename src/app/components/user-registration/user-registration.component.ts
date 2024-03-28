@@ -19,8 +19,8 @@ export class UserRegistrationComponent {
   newUserAccount: User = new User();
 
 
-  message:string=" ";
-  errorMessage:string=" ";
+  message:string="";
+  errorMessage:string="";
   
   constructor(private adminService:AdminService,private router:Router){}
   addUserAccount(){

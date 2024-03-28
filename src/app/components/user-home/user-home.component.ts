@@ -18,6 +18,7 @@ export class UserHomeComponent {
   constructor(private userService: UserService,private route:ActivatedRoute,private router:Router) { 
   }
   ngOnInit(): void {
+    console.log(this.numberId);
     this.userService.getUserName(this.numberId).subscribe(
       {
         next:(data:string)=>{

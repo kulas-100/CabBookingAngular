@@ -1,9 +1,7 @@
-<button type="button" showelement=!showelement> show all</button>
 
 
 
 <div>
-    <h3>Display All Routes: </h3>
     <div *ngIf="message" class="alert alert-success">
         <p> {{message}}</p>
     </div>
@@ -27,7 +25,6 @@
                 <td>{{route.startLocation}}</td>
                 <td>{{route.endLocation}}</td>
                 <td>{{route.fare}}</td>
-                <td> <button (click)="deleteRouteById(route.locationId)" class="btn btn-danger">Delete</button></td>
                 <td> <button (click)="updateRoute(route)" class="btn btn-warning">Update</button></td>
             </tr>
         </tbody>

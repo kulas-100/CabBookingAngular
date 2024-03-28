@@ -15,19 +15,19 @@ export class RegisterComponent {
 
   registerNewUser(){
     console.log("User Registration Successful!");
-    this.router.navigateByUrl('User-Registration');
+    this.router.navigateByUrl('user-registration');
   }
 
 
   registerNewDriver(){
     console.log("Driver Registration Successful!");
-    this.router.navigateByUrl('Driver-Registration');
+    this.router.navigateByUrl('driver-registration');
   }
 
 
   registerNewCab(){
     console.log("Cab registration Successful!");
-    this.router.navigateByUrl('Cab-Registration');
+    this.router.navigateByUrl('cab-registration');
   }
 }
 

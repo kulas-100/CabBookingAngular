@@ -40,6 +40,17 @@ import { RegisterComponent } from './components/register/register.component';
 import { RoutesComponent } from './components/routes/routes.component';
 import { UpdateRoutesComponent } from './components/update-routes/update-routes.component';
 import { UserRegistrationComponent } from './components/user-registration/user-registration.component';
+import { CabRegistrationComponent } from './components/cab-registration/cab-registration.component';
+import { DisplayAllBookingsComponent } from './components/display-all-bookings/display-all-bookings.component';
+import { AssignDriverComponent } from './components/assign-driver/assign-driver.component';
+import { AssignRouteComponent } from './components/assign-route/assign-route.component';
+import { ApplyLeaveComponent } from './components/apply-leave/apply-leave.component';
+import { DecideLeaveComponent } from './components/decide-leave/decide-leave.component';
+import { DriverBookingsComponent } from './components/driver-bookings/driver-bookings.component';
+import { DriverLoginComponent } from './components/driver-login/driver-login.component';
+import { DriverRatingComponent } from './components/driver-rating/driver-rating.component';
+import { LocationComponent } from './components/location/location.component';
+
 
 
 
@@ -58,19 +69,28 @@ export const routes: Routes = [
     {path: 'view-rating', component: ViewRatingComponent},
     {path: 'update-rating', component: UpdateRatingComponent},
     {path: 'routes/create-route', component: CreateRouteComponent},
-    {path: 'display-bookings', component: DisplayAccountsComponent},
+    {path: 'display-bookings', component: DisplayAllBookingsComponent},
     {path: 'display-cabs', component: DisplayAllCabsComponent},
     {path: 'display-drivers', component: DisplayAllDriversComponent},
     {path: 'display-trips', component: DisplayAllTripsComponent},
     {path: 'display-users', component: DisplayAllUsersComponent},
     {path: 'routes/display-routes', component: DisplayAllRoutesComponent},
     {path: 'driver-registration', component: DriverRegistrationComponent},
+    {path: 'cab-registration', component: CabRegistrationComponent},
     {path: 'admin-login', component: AdminLoginComponent},
     {path: 'register', component: RegisterComponent},
     {path: 'routes', component: RoutesComponent},
     {path: 'update-routes', component: UpdateRoutesComponent},
     {path: 'user-registration', component: UserRegistrationComponent},
+    {path: 'assign-driver', component: AssignDriverComponent},
+    {path: 'assign-route', component: AssignRouteComponent},
     { path: 'login', component: LoginComponent },
+    {path:'apply-leave', component: ApplyLeaveComponent},
+    {path: 'decide-leave', component: DecideLeaveComponent},
+    {path: 'driver-bookings', component: DriverBookingsComponent},
+    {path: 'driver-login', component: DriverLoginComponent},
+    {path: 'driver-rating', component: DriverRatingComponent},
+    {path: 'location', component: LocationComponent},
     { path: 'demo', component: DemoComponent,canActivate:[authGuard] },
     {path:'products',component:ProductsComponent},
     {path:'details/:id',component:DetailsComponent},

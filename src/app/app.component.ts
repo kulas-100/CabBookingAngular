@@ -49,6 +49,15 @@ export class AppComponent {
     }
   }
 
+  driverLogout(){
+    if(confirm("Are you sure you want to log out")){
+      console.log("driverLogout");
+      localStorage.setItem("menu","true");
+      localStorage.removeItem("driverId");
+      this.router.navigate(['/driver-home']);
+    }
+  }
+
   showNavBar(){
     if(localStorage.getItem("userId") == null){
       return false;
@@ -60,6 +69,15 @@ export class AppComponent {
 
   showAdminNavBar(){
     if(localStorage.getItem("adminId") == null){
+      return false;
+    }
+    else{
+      return true;
+    }
+  }
+
+  showDriverNavBar(){
+    if(localStorage.getItem("driverId") == null){
       return false;
     }
     else{

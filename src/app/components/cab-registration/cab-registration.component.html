@@ -1,35 +1,37 @@
 <div>
-    <h3>Add new Cab Account:</h3>
-    <!-- <div *ngIf="message" class="alert alert-success">
+   <div *ngIf="message" class="alert alert-success">
         <p> {{message}}</p>
     </div>
     <div *ngIf="errorMessage" class=" alert alert-danger">
         <p>{{errorMessage}}</p>
-    </div> -->
-
+    </div>
 
     <form #userForm="ngForm">
         <div class="form-group">
+            <label for="id">Car Id:</label>
+            <input type="number" id="id" name="id" [(ngModel)]="newCabAccount.id" required
+                class="form-control" #typeRef="ngModel" pattern="[A-Za-z]{3,}">
+        </div>
+        <div class="form-group">
             <label for="type">Car Type:</label>
             <input type="text" id="type" name="Car Type" [(ngModel)]="newCabAccount.type" required
-                class="form-control" #typeRef="ngModel" pattern="[A-Za-z]{3,}">
+                class="form-control" #typeRef="ngModel">
         </div>
         <div *ngIf="typeRef.invalid && (typeRef.touched || typeRef.dirty)">
             <p *ngIf="typeRef.errors?.['required']" class="text-danger">Car type is required, cant be blank.
             </p>
-            <p *ngIf="typeRef.errors?.['pattern']" class="text-danger"> Car type cant be a number</p>
         </div>
         <br>
 
 
         <div class="form-group">
             <label for="CarNumber">CarNumber:</label>
-            <input type="number" id="carNumber" name="fare" [(ngModel)]="newCabAccount.carNumber" required
-                class="form-control" #carNumberRef="ngModel" pattern="[0-9]{1,4}">
+            <input type="text" id="carNumber" name="fare" [(ngModel)]="newCabAccount.carNumber" required
+                class="form-control" #carNumberRef="ngModel">
         </div>
         <div *ngIf="carNumberRef.invalid && (carNumberRef.touched || carNumberRef.dirty)">
             <p *ngIf="carNumberRef.errors?.['required']" class="text-danger">Registered CarNumber is required, cant be blank.</p>
-            <p *ngIf="carNumberRef.errors?.['pattern']" class="text-danger"> Cant exceed 4 digits</p>
+            <!--<p *ngIf="carNumberRef.errors?.['pattern']" class="text-danger"> Cant exceed 4 digits</p>-->
         </div>
         <br>
 
@@ -56,7 +58,7 @@
         </div>
         <br>
 
-
+        <!--
         <div class="form-group">
             <label for="location">Location:</label>
             <input type="text" id="type" name="Location" [(ngModel)]="newCabAccount.location" required
@@ -68,8 +70,8 @@
             <p *ngIf="locationRef.errors?.['pattern']" class="text-danger">Location cant be a number</p>
         </div>
         <br>
-
-
+        -->
+        <!--
         <div class="form-group">
             <label for="tripType">Trip Type:</label>
             <input type="text" id="tripType" name="Trip Type" [(ngModel)]="newCabAccount.tripType" required
@@ -81,7 +83,7 @@
             <p *ngIf="tripTypeRef.errors?.['pattern']" class="text-danger"> Trip type cant be a number</p>
         </div>
         <br>
-
+    -->
 
         <button (click)="addCabAccount()" class="btn btn-success">Add Cab Account</button>
      </form>

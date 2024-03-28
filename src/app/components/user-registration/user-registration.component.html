@@ -1,12 +1,10 @@
 <div>
-    <h3> Add new User Account:</h3>
-
-
-    <!-- <div *ngIf="message" class="alert alert-success">
+    <div *ngIf="message" class="alert alert-success">
         <p> {{message}}</p>
     </div>
     <div *ngIf="errorMessage" class="alert alert-danger">
-        <p> {{errorMessage}}</p> -->
+        <p> {{errorMessage}}</p> 
+    </div>
         <form>
         <div class="form-group">
             <label for="Name">Name:</label>
@@ -72,6 +70,5 @@
 
 
         <button (click)="addUserAccount()" class="btn btn-success">Add user Account</button>
-        <button (click)="backtologin()" class="btn btn-danger">back to login</button>
     </form>
 </div>

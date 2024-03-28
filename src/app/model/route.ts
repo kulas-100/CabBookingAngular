@@ -6,7 +6,7 @@ export class Route {
         public startLocation?: string,
         public endLocation?: string,
         public fare?: number,
-        public startTime?: Time,
-        public endTime?: Time
+        public startTime?: string,
+        public endTime?: string
     ) { }
 }

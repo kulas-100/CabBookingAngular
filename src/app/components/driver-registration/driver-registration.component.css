@@ -1,0 +1,11 @@
+form{
+    margin: 15%;
+    margin-top: 5%;
+    padding: 20px;
+    border: 2px solid black;
+    border-radius: 5px;
+}
+
+button{
+    margin-left: 40%;
+}

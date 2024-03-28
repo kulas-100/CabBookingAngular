@@ -28,7 +28,7 @@ export class PaymentSuccessComponent {
     "\nStatus: "+this.booking.status;
     //this.qrValue = JSON.stringify(this.booking.id);
     console.log(this.qrValue);
-    //this.startCountdown();
+    this.startCountdown();
     });
   }
 

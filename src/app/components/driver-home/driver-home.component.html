@@ -1,1 +1,5 @@
-<p>driver-home works!</p>
+<div class="background-image" [style.background-image]="'url(' + backgroundImageUrl + ')'"></div>
+
+<div class="box" *ngIf = "showMenu()">
+    <h3 >Welcome {{driverName}}</h3>
+</div>

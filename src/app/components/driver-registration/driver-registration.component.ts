@@ -18,8 +18,8 @@ export class DriverRegistrationComponent {
   newDriverAccount: Driver= new Driver();
 
 
-  message:string=" ";
-  errorMessage:string=" ";
+  message:string="";
+  errorMessage:string="";
 name: any;
 driverId: any;
 email: any;

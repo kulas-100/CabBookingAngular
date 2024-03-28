@@ -17,8 +17,8 @@ export class CabRegistrationComponent {
   newCabAccount: Car = new Car();
 
 
-  message:string=" ";
-  errorMessage:string=" ";
+  message:string="";
+  errorMessage:string="";
   
   constructor(private adminService:AdminService,private router:Router){}
  
@@ -29,7 +29,7 @@ export class CabRegistrationComponent {
       {
         next:(message)=>{
           console.log(message);
-          this.message="Cab Account Added.";
+          this.message="Cab Added Successfully!";
           this.errorMessage="";
         },
         error:(err)=>{

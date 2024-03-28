@@ -1,6 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { Booking } from '../../model/booking';
+import { AdminService } from '../../services/admin.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -11,7 +13,23 @@ import { Booking } from '../../model/booking';
   styleUrl: './display-all-bookings.component.css'
 })
 export class DisplayAllBookingsComponent {
-  Bookings:Booking[]=[];
-  Booking: any;
+  bookings:[Booking[]]=[[]];
+  constructor(private adminService:AdminService,private router:Router){}
+  ngOnInit(){
+    this.displayAllBookings();
+  }
+  displayAllBookings() {
+    this.adminService.getAllBookings().subscribe(
+      {
+        next:(data)=>{
+          this.bookings = data;
+          console.log(data);
+        },
+        error:(err)=>{
+          console.log(err);
+        }
+      }
+    )
+  }
 
 }

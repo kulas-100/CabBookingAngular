@@ -1,21 +1,20 @@
 <div>
-    <h3> Add new Driver Account:</h3>
-    <!-- <div *ngIf="message" class="alert alert-success">
+    <div *ngIf="message" class="alert alert-success">
         <p> {{message}}</p>
     </div>
     <div *ngIf="errorMessage" class="alert alert-danger">
         <p> {{errorMessage}}</p>
-    </div> -->
+    </div>
     <form #userForm="ngForm">
         <div class="form-group">
             <label for="DriverId">Driver Id</label>
             <input type="text" id="DriverId" name="Driver Id" [(ngModel)]="newDriverAccount.id" required
-                class="form-control" #DriverIdRef="ngModel" pattern="[A-Za-z]{3,}">
+                class="form-control" #DriverIdRef="ngModel" pattern="[0-9]+">
         </div>
         <div *ngIf="DriverIdRef.invalid && (DriverIdRef.touched || DriverIdRef.dirty)">
             <p *ngIf="DriverIdRef.errors?.['required']" class="text-danger">Driver Id is required, cant be blank.
             </p>
-            <p *ngIf="DriverIdRef.errors?.['pattern']" class="text-danger"> Driver Id cant only be numbers</p>
+            <p *ngIf="DriverIdRef.errors?.['pattern']" class="text-danger"> Driver Id cant have letters</p>
         </div>
         <br>
 
@@ -83,6 +82,5 @@
 
 
         <button (click)="addDriverAccount()" class="btn btn-success">Add Driver Account</button>
-        <button (click)="backtologin()" class="btn btn-danger">back to login</button>
     </form>
 </div>

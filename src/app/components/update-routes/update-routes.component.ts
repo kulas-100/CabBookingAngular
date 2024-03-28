@@ -15,18 +15,22 @@ import { ActivatedRoute, Router, RouterLink, RouterLinkActive } from '@angular/r
   styleUrl: './update-routes.component.css'
 })
 export class UpdateRoutesComponent {
-  id: string | null = "";
+  id?: number;
    route :Route = new Route();
    message:string="";
    errorMessage:string="";
+   numberId: string | null = "";
 
 
 
    constructor(private routeService:RouteService,private activatedRoute: ActivatedRoute,private router:Router) { 
-    this.id = this.activatedRoute.snapshot.paramMap.get('id');
-    console.log(this.id);
    }
    ngOnInit(): void {
+    this.activatedRoute.queryParams.subscribe(params=>{
+      this.route = JSON.parse(params['routeData']);
+      this.id = this.route.locationId;
+    }
+    )
     this.routeService.getRouteById(this.id).subscribe({
       next:(data: any) => {
         console.log(data);
@@ -68,4 +72,8 @@ export class UpdateRoutesComponent {
    }
 }
 
+
+function updateRoute() {
+  throw new Error('Function not implemented.');
+}
 

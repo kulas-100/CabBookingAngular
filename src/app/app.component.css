@@ -68,7 +68,7 @@ nav ul {
   border: 1px solid #e7e7e7;
   background-color: #1E90FF;
   display: grid;
-  grid-template-columns: 14% 14% 14% 14% 14% 14% 14% 14%;
+  grid-template-columns: 12.5% 12.5% 12.5% 12.5% 12.5% 12.5% 12.5% 12.5%;
 }
 
 .admNavbar ul{

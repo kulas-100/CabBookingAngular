@@ -1,0 +1,36 @@
+
+<div *ngIf="message" class="alert alert-success">
+    <p> {{message}}</p>
+</div>
+<div *ngIf="errorMessage" class="alert alert-danger">
+    <p> {{errorMessage}}</p>
+</div>
+<form>
+    <div class="form-group">
+        <label for="leaveId">Leave ID</label>
+        <input type="number" name="leaveId" class="form-control" id="leaveId" placeholder="Enter Leave ID" [(ngModel)]="leave.leaveId">
+    </div><br>
+    <div class="form-group">
+        <label for="driverid">Driver ID</label>
+        <input type="text" class="form-control" name="driverId" id="driverid" placeholder="Enter Driver ID" [(ngModel)]="leave.driverId">
+    </div><br>
+    <div class="form-group">
+        <label for="startdate">Start Date</label>
+        <input type="date" class="form-control" name="startDate" id="startdate" min="{{date | date:'yyyy-MM-dd'}}" [(ngModel)]="leave.startDate">
+        
+    </div><br>
+    <div class="form-group">
+        <label for="endDate">End Date</label>
+        <input type="date" class="form-control" name="endDate" id="endDate" [(ngModel)]="leave.endDate" >
+    </div><br>
+    <div class="form-group">
+        <label for="status">Status</label>
+        <input type="text" class="form-control" name="status" id="status" placeholder="applied" disabled [(ngModel)]="leave.status" >
+    </div><br>
+    <div class="form-group">
+        <label for="reason">Reason</label>
+        <textarea class="form-control" id="reason" name="reason" rows="3" placeholder="Enter Reason" [(ngModel)]="leave.reason"></textarea>
+    </div><br>
+    <button type="submit" class="btn btn-primary" (click)="applyLeave()">Submit</button>
+</form>
+ 

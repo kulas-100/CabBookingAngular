@@ -26,7 +26,7 @@ export class RouteService {
   updateRoute(route?: Route): any {
     return this.httpClient.put("http://localhost:8090/updateRoute", route);
   }
-  getRouteById(id?: string | null): any {
+  getRouteById(id?: number): any {
     return this.httpClient.get("http://localhost:8090/location/" + id);
   }
 }

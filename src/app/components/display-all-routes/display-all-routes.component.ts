@@ -39,7 +39,7 @@ export class DisplayAllRoutesComponent {
    
   updateRoute(route:Route){
     console.log(route);
-    this.router.navigate(["route/updateroute",route.locationId]);
+    this.router.navigate(["update-routes"], {queryParams: {routeData:JSON.stringify(route)}});
   }
   deleteRouteById(id?:number){
     console.log("delete id:"+id);

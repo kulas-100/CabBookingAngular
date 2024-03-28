@@ -38,9 +38,6 @@ export class CreateRouteComponent {
           this.errorMessage = " Network error, please try again later."
         else
           this.errorMessage = err.error;
-
-
-
         this.message = "";
       }
     });

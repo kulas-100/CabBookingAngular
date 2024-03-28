@@ -1,19 +1,18 @@
+<div *ngIf="errorMessage" class="alert alert-danger">
+    <p> {{errorMessage}}</p>
+</div>
 <div>
-    <h3>Display all Cabs</h3>
-
-
-    Search:<br>
-    <input type="text" id="search" name="search" [(ngModel)]="query">
+    <br><br>
+    <input type="text" id="search" name="search" [(ngModel)]="query"><br>
     
     <table class="table table-striped">
         <thead>
         <tr>
-            <th>id</th>
-            <th>type</th>
-            <th>carNumber</th>
-            <th>capacity</th>
-            <th>availableSeats</th>
-            <th>driverName</th>
+            <th>Id</th>
+            <th>Type</th>
+            <th>CarNumber</th>
+            <th>Capacity</th>
+            <th>AvailableSeats</th>
         </tr>
         </thead>
         <tbody>
@@ -23,7 +22,10 @@
                 <td>{{cabaccount.carNumber}}</td>
                 <td>{{cabaccount.capacity}}</td>
                 <td>{{cabaccount.availableSeats}}</td>
-                <td>{{cabaccount.driver?.name}}</td>
+                <td *ngIf = "cabaccount.driver !== null"><button (click)="updateDriver(cabaccount.driver?.id, cabaccount.id)">Update Driver</button></td>
+                <td *ngIf = "cabaccount.driver == null"><button (click)="updateDriver()">Assign Driver</button></td>
+                <td *ngIf = "cabaccount.route !== null"><button (click)="updateRoute(cabaccount.driver?.id, cabaccount.id)">Update Route</button></td>
+                <td *ngIf = "cabaccount.route == null"><button (click)="updateRoute(cabaccount.driver?.id, cabaccount.id)">Assign Route</button></td>
 
                 <!-- <button (Click)="addCabAccount()" class="btn btn-success">Add Cab Account</button> -->
                 

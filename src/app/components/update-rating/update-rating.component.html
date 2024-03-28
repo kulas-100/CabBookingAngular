@@ -1,17 +1,28 @@
-
-<h3> Update your Rating:</h3>
-    <div *ngIf="message" class="alert alert-success">
-        <p> {{message}}</p>
+<div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-body">
+            <h3 class="card-title">Update your Rating</h3>
+            <div *ngIf="message" class="alert alert-success">
+              <p>{{ message }}</p>
+            </div>
+            <div *ngIf="errorMessage" class="alert alert-danger">
+              <p>{{ errorMessage }}</p>
+            </div>
+            <form>
+              <div class="form-group">
+                <label for="point">Points</label>
+                <input type="number" class="form-control" id="point" name="point" [(ngModel)]="rating.point">
+              </div>
+              <div class="form-group">
+                <label for="review">Review</label>
+                <input type="text" class="form-control" id="review" name="review" [(ngModel)]="rating.review">
+              </div>
+              <button (click)="updateRating()" class="btn btn-success">Update Rating</button>
+            </form>
+          </div>
+        </div>
+      </div>
     </div>
-    <div *ngIf="errorMessage" class="alert alert-danger">
-        <p> {{errorMessage}}</p>
-    </div>
-    <form>       
-        <label for="point">Points</label><br>
-        <input type="number" id="point" name="point" [(ngModel)]="rating.point"><br>
-       
-        <label for="review">Review</label><br>
-        <input type="text" id="review" name="review" [(ngModel)]="rating.review"><br>
-
-        <button (click)="updateRating()" class="btn btn-success">Update Rating</button>    
-    </form>
+  </div>

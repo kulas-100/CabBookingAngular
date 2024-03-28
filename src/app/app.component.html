@@ -8,7 +8,7 @@
         <div *ngIf="showMenu()" class="box">
             <!--<img [src]="driverImageUrl" alt=""><br>-->
             <h3>Are you a Driver</h3><br>
-            <a routerLink='driver-home'  routerLinkActive="active" (click)="driverLogin()" class="btn btn-primary">Click here to Login</a>
+            <a routerLink='driver-login'  routerLinkActive="active" (click)="driverLogin()" class="btn btn-primary">Click here to Login</a>
         </div>
         
         <div *ngIf="showMenu()" class="box">
@@ -25,6 +25,10 @@
         <ul> 
             <li>
                 <img [src]="logoImageUrl" alt="">
+            </li>
+            <li>
+                <a routerLink='location' 
+                 routerLinkActive="active" >Live Location</a>
             </li>
             <li>
                 <a routerLink='view-bookings' 
@@ -51,7 +55,7 @@
             </li>
         </ul>
     </nav>
-</div>
+</div> <br *ngIf = "showNavBar()">
 
 
 <div *ngIf = "showAdminNavBar()" class="navBar" class = "admNavbar">
@@ -69,8 +73,8 @@
                 routerLinkActive="active" >Users</a>
             </li>
             <li>
-                <a routerLink='display-trips' 
-                 routerLinkActive="active" >Trips</a>
+                <a routerLink='decide-leave' 
+                 routerLinkActive="active" >Leaves</a>
             </li>
             <li>
                 <a routerLink='display-bookings' 
@@ -94,8 +98,31 @@
         </ul>
     </nav>
 </div>
-<br>
 
+<div *ngIf = "showDriverNavBar()" class="navBar" class = "driverNavbar">
+    <nav>
+        <ul>
+            <li>
+                <img [src]="logoImageUrl" alt="">
+            </li>
+            <li>
+                <a routerLink='driver-bookings' 
+                 routerLinkActive="active" >View Bookings</a>
+            </li>
+            <li>
+                <a routerLink='apply-leave'
+                routerLinkActive="active" >Apply Leave</a>
+            </li>
+            <li>
+                <a routerLink='driver-rating' 
+                 routerLinkActive="active" >Ratings</a>
+            </li>
+            <li>
+                <button (click)="driverLogout()" id="logout">Driver Logout</button>
+            </li>
+        </ul>
+    </nav>
+</div>
 
 
 <div>
